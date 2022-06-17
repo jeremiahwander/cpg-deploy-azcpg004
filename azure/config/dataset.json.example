@@ -1,12 +1,12 @@
 {
     "name" : "fewgenomes",
     "project_id" : "fewgen0001",
-    "region" : "australiaeast",
+    "region" : "eastus",
     "access_accounts": {
         "test":[],
         "standard":[],
-        "full":["miah_microsoft.com#EXT#", "gregsmi_microsoft.com#EXT#"],
-        "access":["miah_microsoft.com#EXT#", "gregsmi_microsoft.com#EXT#"],
+        "full":["full_user_upn"],
+        "access":["access_user_upn"],
         "web-access":[]
     },
     "allowed_repos": [
