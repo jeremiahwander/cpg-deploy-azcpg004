@@ -189,6 +189,8 @@ Lastly, in the `config` subdirectory you will create one or more dataset-specifi
    ./terraform_init.sh -c
    ```
 
+   Note: `terraform_init.sh` can be run without the `-c` argument at any time to initialize a new local client for an existing deployment. This is useful if you want to manage an existing deployment from a new machine.
+
 2. Apply the terraform configuration
 
    ```bash
@@ -202,7 +204,7 @@ Lastly, in the `config` subdirectory you will create one or more dataset-specifi
 Multiple files will now be updated with deployment specific settings. To allow others to manage your deployment, or to manage your deployment from other machines, you'll want to commit these configuration changes to your fork of the cpg-deploy-fork repository.
 
 ```bash
-git add TODO
+git add azure/deployment.env azure/config/config.json
 git commit -m "configured deployment"
 git push origin
 ```
