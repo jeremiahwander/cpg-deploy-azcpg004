@@ -312,6 +312,25 @@ If the deployment VM is still available.
 1. `terraform destroy`. After confirmation, deletion of resources should take approximately 3 minutes
 1. Remove the github secrets from the sample-metadata-fork and analysis-runner-fork repositories
 
-If the deployment VM is no longer available
+If the deployment machine is no longer available
 
-TODO
+1. Configure a new deployment machine with the pre-requisites described [above](#deployment-machine-pre-requisites)
+1. Clone the cpg-deploy-fork repository
+1. Run the following to re-initialize a local client to existing terraform state
+
+   ```bash
+   chmod u+x terraform_init.sh
+   ./terraform_init.sh
+   ```
+
+1. `terraform destroy`. After confirmation, deletion of resources should take approximately 3 minutes
+1. Remove the github secrets from the sample-metadata-fork and analysis-runner-fork repositories
+
+If you wish to remove the storage account where the terraform state is stored, and the resource group that houses it, run the following
+
+```bash
+RESOURCE_GROUP=$(sed -En 's/deployment_name = "(.*?)"/\1/p' terraform.tfvars)
+az group delete -n "$RESOURCE_GROUP-rg"
+```
+
+Warning: this will delete all of the resources in your deployment resource group, not just the storage account containing terraform state. This should only be used as a final cleanup command if you're trying to remove all traces of a deployment.
