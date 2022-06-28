@@ -35,7 +35,7 @@ See the following links for how to [AAD roles](https://docs.microsoft.com/en-us/
 
 You may want to perform the following deployment steps from an Azure VM in the same region as you wish to deploy your infrastructure. [These instructions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal) can help you deploy an Azure VM. Note the public IP address of your VM for later steps.
 
-The following instructions have been tested on a Linux VM running Ubuntu 20.04.
+The following instructions have been tested on a Linux VM running Ubuntu 20.04 and Windows Subsystem for Linux hosting Ubuntu 18.04.
 
 ### Update and install base utilities
 
@@ -204,7 +204,7 @@ Lastly, in the `config` subdirectory you will create one or more dataset-specifi
 Multiple files will now be updated with deployment specific settings. To allow others to manage your deployment, or to manage your deployment from other machines, you'll want to commit these configuration changes to your fork of the cpg-deploy-fork repository.
 
 ```bash
-git add azure/deployment.env azure/config/config.json
+git add deployment.env config/config.json deploy-config.prod.json
 git commit -m "configured deployment"
 git push origin
 ```
